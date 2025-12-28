@@ -1,0 +1,22 @@
+# This tells Nixpacks to install both Go and Node.js
+[phases.setup]
+nixPkgs = ["...", "go", "nodejs"]
+
+# Install dependencies for both parts during the build phase
+[phases.install]
+cmds = [
+  "go mod download",
+  "npm install",
+  "cd mini-app && npm install"
+]
+
+# Build both parts so the app is ready to run
+[phases.build]
+cmds = [
+  "go build -o out ./cmd/server",
+  "cd mini-app && npm run build"
+]
+
+# Start your app using your script
+[start]
+cmd = "bash start.sh"
