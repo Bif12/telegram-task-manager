@@ -1,8 +1,10 @@
-# This tells Nixpacks to install Go and the latest Node.js 22
 [phases.setup]
-nixPkgs = ["...", "go", "nodejs_22"]
+nixPkgs = ["...", "go", "nodejs"]
 
-# The rest of your file stays the same...
+[variables]
+# Fixes the "crypto.hash" error from your previous build
+NIXPACKS_NODEJS_VERSION = "22" 
+
 [phases.install]
 cmds = [
   "go mod download",
@@ -17,4 +19,5 @@ cmds = [
 ]
 
 [start]
-cmd = "bash start.sh"
+# Instead of dev, we run the compiled Go binary
+cmd = "./out"
