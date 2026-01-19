@@ -1,0 +1,24 @@
+{
+  "name": "telegram-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack Telegram Mini App for task management",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "~/go/bin/air",
+    "dev:client": "cd mini-app && npm run dev",
+    "build": "cd mini-app && npm run build",
+    "build:all": "npm run build && go build -o bin/server ./cmd/server",
+    "start": "./bin/server",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop ecosystem.config.js",
+    "pm2:restart": "pm2 restart ecosystem.config.js",
+    "pm2:delete": "pm2 delete ecosystem.config.js",
+    "pm2:logs": "pm2 logs",
+    "pm2:status": "pm2 list"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "pm2": "^5.3.0"
+  }
+}

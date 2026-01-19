@@ -1,0 +1,39 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+/bin/
+/tmp/
+vendor/
+
+# Environment
+.env
+.env.local
+
+# Database
+*.db
+/data/
+
+# Node
+node_modules/
+/mini-app/dist/
+/mini-app/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+/logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
